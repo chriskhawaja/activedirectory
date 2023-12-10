@@ -26,55 +26,70 @@ This project involves the creation of two virtual machines. One of the virtual m
 
 - Step 1
   - Create a Resource Group within Microsoft Azure
-![image](https://github.com/chriskhawaja/azure-network-protocols/assets/153021794/36006b36-ffd9-41f5-9f41-7f04ae2ce17e)
+![image](https://github.com/chriskhawaja/activedirectory/assets/153021794/8b1c5692-8724-491e-b741-8b5e7c4b0291)
+
 
 - Step 2  - within the Resource Group that was created
-  - Create an Azure Virtual Machine running a Windows 10 Pro Image
+  - Create an Azure Virtual Machine running a Windows Server 2019 Image
   - Make sure to place this Virtual Machine into the resource group that was created
   - Ensure that 2 Virtual CPU's are selected
-  ![image](https://github.com/chriskhawaja/azure-network-protocols/assets/153021794/baef5b4a-f3ed-40d2-90d6-fcd570da6d1c)
+![image](https://github.com/chriskhawaja/activedirectory/assets/153021794/d6fc0dd9-b018-47fd-8c82-1839f478febd)
+
 
 - Step 3
-  - Before booting into your VM, make sure to download and create and account for Proton VPN
-    - This is because downloading Proton VPN in a VM can be challenging
-    - Whenever you use a VM in Azure, the VM can be anywhere in the world
-      - If your VM is in France, you might have trouble download Proton VPN on Google when everything is in French
-      - Make sure to copy the URL, and then once you are in your VM, paste the link into Google
-- Also, take note of your IP address on your computer before remoting into your VM
-  - You can do this by typing in "what is my IP address" on Google and clicking the first link 
-    ![image](https://github.com/chriskhawaja/vpn/assets/153021794/2aceaf82-5081-4030-a432-98396b8c05e6)
-![image](https://github.com/chriskhawaja/vpn/assets/153021794/26bff450-c222-4f85-adf1-6aebe0852a16)
+ - Repeat this same process except choose the Windows 10 Pro Image and create
+![image](https://github.com/chriskhawaja/activedirectory/assets/153021794/7c687135-5c6a-4137-a14b-44a2374277b7)
 
 - Step 4
-  - Utilizing RDP on Windows, remote into Virtual Machine 1 (Windows Pro) - by typing in the IP Address
-  - If using a Mac computer, go to the app store and download the Microsoft Remote Desktop application
-  - You will be prompted with a login screen - use the credentials you provided during the virtual machine creation process
-![image](https://github.com/chriskhawaja/azure-network-protocols/assets/153021794/6d103328-f103-429d-aef5-f47c17e1aa1b)
-
+  - Before we can boot into our VM, we have to set the IP address of our VM1 to static
+    - Since this VM will be our domain controller (server), it needs to have a static IP address, rather than a dynamic IP address
+    - Servers will typically be configured with static IP addresses
+   - To do this, we will go to our domain controller VM (DC-1), and click the networking tab on the left
+   - We will then click "dc-1959_z1", which is to the right of "Network Interface:"
+![image](https://github.com/chriskhawaja/activedirectory/assets/153021794/aa8aaef3-3bff-40f7-b84e-c95ea94383e5)
+- We will then clikc the "IP Configurations" tab on the left and select "ipconfig1" under Name 
+![image](https://github.com/chriskhawaja/activedirectory/assets/153021794/a74e1be7-0f89-4cd8-915e-e5b4b8cc1975)
+Under Allocation, we will select "Static" and press "Save"
+![image](https://github.com/chriskhawaja/activedirectory/assets/153021794/f4af4642-38e8-406b-9b84-8b28e2ae79a1)
 
 - Step 5
-  - Once you are booted into the Virtual Machine, proceed to look up your IP address
-    - This will be different than your normal IP address outside of your VM
-      - You can observe that a VM has some similarities to a VM
-        - You can see that this VM IP address states that I am in Phoenix, when in actuality, I am in a completely different state
-        - I am able to access a VM within my normal desktop computer, and have it appear that I am literally in Phoenix, when I am not
- ![image](https://github.com/chriskhawaja/vpn/assets/153021794/448cef4f-e60f-443e-9448-e1c47402a94d)
+  - You can now boot into the virtual machine via RDP (Reference previous labs if there is any confusion on how to do this)
+![image](https://github.com/chriskhawaja/activedirectory/assets/153021794/22068aae-be66-4273-bd6b-db4b3b2178ca)
 
 
 - Step 6
-  - Once you have pasted the Proton VPN download link, open Proton VPN in the VM, and sign on with the credentials that you made
-  - Select "quick connect" to access a random VPN server somewhere in the world
-![image](https://github.com/chriskhawaja/vpn/assets/153021794/277e9dac-3e52-4c7d-aea3-46b6145c6441)
-
+ - Once you boot into the VM and Server Manager loads up, select "Add roles and features" under "Configure this local server"
+![image](https://github.com/chriskhawaja/activedirectory/assets/153021794/b9914c00-e73f-4650-9b2d-bf1057b9735b)
+- Proceed through the installation wizard and once you reach the "Select Server Roles" section, be sure to select "Active Directory Domain Services"
+  - Select "Add features"
+  - Select "Install" and wait for Active Directory to install
+![image](https://github.com/chriskhawaja/activedirectory/assets/153021794/94c17972-d444-42d7-bbc2-c56376b9b959)
+- Close out of the installation wizard and select the flag with the exclamation mark (towards top right of screen)
+  - Select "Promote this server to a domain controller" 
+![image](https://github.com/chriskhawaja/activedirectory/assets/153021794/dca853d2-49e4-478e-8b88-cdc20e9fc8c4)
+- Once the Deployment Configuration Wizard pops up, select "add new forest", and create your domain name
+  - Make sure to remember the password you set for your domain
+  ![image](https://github.com/chriskhawaja/activedirectory/assets/153021794/fcf4d4aa-dd5b-458f-a332-eedf276bd504)
+- Proceed through all the other steps by clicking next and select "install" (You will be signed out and asked to login again
+  ![image](https://github.com/chriskhawaja/activedirectory/assets/153021794/4a14a7af-65c8-418b-b4a4-5f874395bcd5)
+- Once you remote back into the VM, you have to make sure that your are logging in correctly
+  - Since this is a Domain Controller now, you must enter the domain name, followed by a "\" and your username
+  - Enter the password you created for the domain as well
+![image](https://github.com/chriskhawaja/activedirectory/assets/153021794/9511d9cf-7323-4787-8a25-6b4cfca36ca9)
 
 - Step 7
-  - We are now connected to a VPN server in Japan
-  - Visit websites such as www.google.com and www.netflix.com to see the difference
-    - You can note the differences in language and the presentation of different Japanese shows
-![image](https://github.com/chriskhawaja/vpn/assets/153021794/0f800a58-fe7c-42e6-b401-5a8ef8d0cef3)
-![image](https://github.com/chriskhawaja/vpn/assets/153021794/a95d70b3-a831-497b-99c4-ddf84b597e5f)
-![image](https://github.com/chriskhawaja/vpn/assets/153021794/12975747-ccbc-4555-8eb9-3a44a26b14eb)
-
+  - Load up Server Manager from the start menu at the bottom left corner
+  - Once in Server Manager, select "Tools" from the top right
+  - Under Tools, select "Active Directory Users and Computers"
+![image](https://github.com/chriskhawaja/activedirectory/assets/153021794/d4a2459d-5ea6-4e3d-b5ae-bb86179e6d83)
+- We can now create organization units by right clicking "www.mydomain.com", hovering over new, and selecting "organizational unit"
+![image](https://github.com/chriskhawaja/activedirectory/assets/153021794/fac3b8bf-054f-4690-9d72-501f96c715d5)
+- We can now create our first user by clicking our organization unit "_EMPLOYEES"
+- Right-clicking anywhere in the blank space
+- Hovering over new and selecting "user"
+  ![image](https://github.com/chriskhawaja/activedirectory/assets/153021794/eb316b28-e1b5-4121-8ad6-5ec7cb6d607f)
+![image](https://github.com/chriskhawaja/activedirectory/assets/153021794/22f5479d-72a1-4823-9f86-a9781d7f0da6)
+![image](https://github.com/chriskhawaja/activedirectory/assets/153021794/d6e31ff2-0b88-4301-867d-2eaa6b1b01a2)
 
 - Step 8
   - Be sure to search on google for "what is my ip address?"
