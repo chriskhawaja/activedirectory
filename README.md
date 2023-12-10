@@ -90,6 +90,34 @@ Under Allocation, we will select "Static" and press "Save"
   ![image](https://github.com/chriskhawaja/activedirectory/assets/153021794/eb316b28-e1b5-4121-8ad6-5ec7cb6d607f)
 ![image](https://github.com/chriskhawaja/activedirectory/assets/153021794/22f5479d-72a1-4823-9f86-a9781d7f0da6)
 ![image](https://github.com/chriskhawaja/activedirectory/assets/153021794/d6e31ff2-0b88-4301-867d-2eaa6b1b01a2)
+- We can now create a security group for the Accounting department and add Jane Doe to the group
+- Select "Users"
+- Right-click in the blank space and hover over "New"
+- Select "Group"
+- We will name the group "Accounting" and make sure it is a security group
+  ![image](https://github.com/chriskhawaja/activedirectory/assets/153021794/2c6e60c4-d11d-452c-92e4-8979be9c7997)
+- Now, we can add Jane Doe to the Accounting Security Group
+- Select "Employees"
+- Right-clik on Jane Doe
+- Select "Add to Group" and we will type in Accounting
+  ![image](https://github.com/chriskhawaja/activedirectory/assets/153021794/d0055219-bc48-4f0d-b272-44626e52b05b)
+- We will now add 1,000 users into an OU called "_EMPLOYEES_FROM_PS"
+  - Be sure to open Powershell ISE from the start menu
+  - Select the white paper logo under "File"
+  - Copy and paste the script into Powershell
+  - Press the green arrow to run the script
+  ![image](https://github.com/chriskhawaja/activedirectory/assets/153021794/b1478b27-7cd7-45ea-a2a3-e3533d8525ac)
+- We can now select the "_EMPLOYEES_FROM_PS" OU
+- Right-click on any random user created and select "Reset Password"
+![image](https://github.com/chriskhawaja/activedirectory/assets/153021794/ce7d1766-28e9-4ade-a2b5-61339688dc0e)
+- If we want to ensure that their password must be rest upon login, we can double-click on any random user
+- Select the "Account" tab
+- Make sure that "User must change password at next logon" is checked
+![image](https://github.com/chriskhawaja/activedirectory/assets/153021794/a5a1cc7a-6459-4d57-9490-8c76c6af0de5)
+- We can also disable accounts by right-clicking on the user and selecting "disable account"
+![image](https://github.com/chriskhawaja/activedirectory/assets/153021794/2ec234d4-6c1b-4bd9-9c82-9dba824fd5ae)
+- We can also unlock a user's account by double-clicking on their name, selecting the "Account" tab, and checking "Unlock Account"
+![image](https://github.com/chriskhawaja/activedirectory/assets/153021794/fd8ce371-d28f-4f43-a16e-293cd6ebf6fd)
 
 - Step 8
   - Be sure to search on google for "what is my ip address?"
