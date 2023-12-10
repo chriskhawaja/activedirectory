@@ -1,24 +1,26 @@
-![image](https://github.com/chriskhawaja/vpn/assets/153021794/52ceb331-ab99-4384-bf88-1312540740af)
+![image](https://github.com/chriskhawaja/activedirectory/assets/153021794/56c8463a-c1c7-4849-b776-fd015bdf292f)
 
 
 
 
 
-<h1>Setting up a Virtual Private Network in a Virtual Machine</h1>
+
+<h1>Installing Active Directory in Microsoft Azure</h1>
 
 <h2>Project Summary</h2>
-This project involves the creation of a a virtual machine and Proton VPN to better understand VPN fundamentals. Additionally, we will note the changes in our IP address before and after we connect to a VPN server. 
+This project involves the creation of two virtual machines. One of the virtual machines will be running a Windows Server 2019 image, while the other one will be running a Windows 10 Pro image. Once both VM's are created, we will boot into the VM running Windows Server, and through server manager, convert the VM into a domain controller. Furthermore, we will use the VM to install Active Directory Domain Services and connect the Windows 10 Pro VM (Client) to our domain (Windows Server 2019). Once Active Directory is installed on our domain controller, we will create organizational units, users, security groups, containers, disable/unlock accounts, and reset passwords. Additionally, we will sign-on to a user account that we created in our domain, from our client VM. In the end, this project will teach users about basic Active Directory fundamentals. 
 <h2>Platforms and Technologies Used</h2>
 
 - Microsoft Azure (Virtual Machine Deployment)
-- Notepad (For keeping track of the changes in our IP Addresses)
-- Azure Resource Group (Contains VM)
+- Powershell (Creating users in Active Directory)
+- Azure Resource Group (Contains VM's)
 - RDP (Remotely Accessing Virtual Machines)
   - TCP Port 3389
-- Proton VPN (Provides access to numerous VPN servers)
+- Server Manager (Installing Active Directory)
 <h2>Operating Systems Used </h2>
 
-- Windows 10 Pro
+- Windows 10 Pro (Client)
+- Windows Server 2019 (Domain Controller)
 
 <h2>Project Demonstration</h2>
 
