@@ -120,13 +120,36 @@ Under Allocation, we will select "Static" and press "Save"
 ![image](https://github.com/chriskhawaja/activedirectory/assets/153021794/fd8ce371-d28f-4f43-a16e-293cd6ebf6fd)
 
 - Step 8
-  - Be sure to search on google for "what is my ip address?"
-    - Notice the change in IP address from our original VM IP address
-    - Remember, this is because we are connected to a VPN server in Japan
-![image](https://github.com/chriskhawaja/vpn/assets/153021794/0bd495e1-52cd-40be-b281-d150ff296e8f)
+  - We will now connect our VM2 (Client) to our Domain (VM1)
+  - First, we need to change the DNS server to match the private IP address of VM1, rather than the virtual network DNS
+    - The DNS must match the domain controller's private IP address to connect to the domain
+  - In Azure, go to the client VM and select the "Networking" tab on the left 
+  ![image](https://github.com/chriskhawaja/activedirectory/assets/153021794/854d3f2a-f222-421c-a15d-48a08a6de574)
+- Select DC-1-vnet/default, which is to the right of "Virtual network/subnet:"
+- From there, select "DNS Servers" tab on the left, and choose "custom" under DNS servers
+  - Input the private IP Address of VM1 (Domain Controller) and select "save"
+![image](https://github.com/chriskhawaja/activedirectory/assets/153021794/c2a32a4e-bdd6-44ab-9782-06210c03a9e5)
+- Be sure to restart the client VM
+  ![image](https://github.com/chriskhawaja/activedirectory/assets/153021794/3713ed54-7419-49c0-853c-405bf0bfdf3f)
+- Remote into the Client VM
+  ![image](https://github.com/chriskhawaja/activedirectory/assets/153021794/937f6abd-5a7e-4b22-a7a3-8f20f8f5872c)
+- Right-click on the Windows logo in the bottom left corner and select "System"
+- Under "Related Settings", select "Rename this PC (Advanced)"
+![image](https://github.com/chriskhawaja/activedirectory/assets/153021794/db974659-d0a8-47c7-99ae-6a6c3a2ba13e)
+- Below Network ID, select the "Change" button and input your domain name
+  ![image](https://github.com/chriskhawaja/activedirectory/assets/153021794/d60030e2-601c-4fe1-9972-59071ea9bbb7)
+- Since we created 1,000 accounts on the DC, we will use one of those accounts to connect the Client to the Domain
+ ![image](https://github.com/chriskhawaja/activedirectory/assets/153021794/028b8ea0-164a-4b79-b59d-8385ab237b2b)
+- We can now see that our Client-VM is connect to our Domain Controller
+![image](https://github.com/chriskhawaja/activedirectory/assets/153021794/e42753a7-3a6a-4374-8b34-a277378850af)
+- Log out of the session and sign-on using one of the accounts made in AD
 
 - Step 9
-  - Feel free to select "change server" to access different VPN servers around the world
-  - As you can see, after changing the VPN server, it now shows we have the IP address of a location in the Netherlands
-    - However, we are not actually in the Netherlands
-  ![image](https://github.com/chriskhawaja/vpn/assets/153021794/fdb94271-8d59-4154-bd63-572e2ef56522)
+   - We will now allow users to remotely access the domain
+   - Go to system settings, under Related Settings, select "Remote Desktop"
+   - Select at the bottom - "Select users who can remotely access this PC"
+   - Be sure to add "Domain Users"
+     ![image](https://github.com/chriskhawaja/activedirectory/assets/153021794/42870c26-fd05-453a-ad06-c9763283a28f)
+- As you can see, we are officially signed onto VM2 with the bat.juko account we made in AD
+  ![image](https://github.com/chriskhawaja/activedirectory/assets/153021794/fc21a174-5b5f-4423-8a96-4ebf55257de0)
+
