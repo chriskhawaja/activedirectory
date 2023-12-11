@@ -22,7 +22,7 @@ This project involves the creation of two virtual machines. One of the virtual m
 - Windows 10 Pro (Client)
 - Windows Server 2019 (Domain Controller)
 
-<h2>Project Demonstration</h2>
+<h2>Installation of Active Directory</h2>
 
 - Step 1
   - Create a Resource Group within Microsoft Azure
