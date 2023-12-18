@@ -73,7 +73,7 @@ Under Allocation, we will select "Static" and press "Save"
 - Proceed through all the other steps by clicking next and select "install" (You will be signed out and asked to login again
   ![image](https://github.com/chriskhawaja/activedirectory/assets/153021794/4a14a7af-65c8-418b-b4a4-5f874395bcd5)
 - Once you remote back into the VM, you have to make sure that your are logging in correctly
-  - Since this is a Domain Controller now, you must enter the domain name, followed by a "\" and your username
+  - Since this is a Domain Controller now, you must enter the domain name, followed by a " \ " and your username
   - Enter the password you created for the domain as well
 ![image](https://github.com/chriskhawaja/activedirectory/assets/153021794/9511d9cf-7323-4787-8a25-6b4cfca36ca9)
 
