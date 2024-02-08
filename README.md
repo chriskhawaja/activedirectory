@@ -77,3 +77,7 @@ Under Allocation, we will select "Static" and press "Save"
   - Enter the password you created for the domain as well
 ![image](https://github.com/chriskhawaja/activedirectory/assets/153021794/9511d9cf-7323-4787-8a25-6b4cfca36ca9)
 
+
+
+
+**** Picture used at the top of personal project is not mine (taken from Google)
